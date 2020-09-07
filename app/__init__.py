@@ -11,21 +11,22 @@ from flask_migrate import Migrate
 from flask_login import LoginManager
 #emails
 from flask_mail import Mail
+#css
+from flask_bootstrap import Bootstrap
 
 #app and config
 app = Flask(__name__)
 app.config.from_object(Config)
-
 #database
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
-
 #login
 login = LoginManager(app)
 login.login_view = 'login'
-
 #mail
 mail = Mail(app)
+#css
+bootstrap = Bootstrap(app)
 
 from app import routes, models, errors
 
